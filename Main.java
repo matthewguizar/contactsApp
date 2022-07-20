@@ -31,6 +31,10 @@ public class Main {
                 String phoneNumber = scan.nextLine();
                 System.out.println("\tBirth date: ");
                 String birthDate = scan.nextLine();
+                if (name.isBlank() || phoneNumber.isBlank() || phoneNumber.length() < 5) {
+                    System.out.println("Not valid. Registration Failed.");
+
+                } else {
                 try {
                     manager.addContact(new Contact(name, phoneNumber, birthDate));
                 } catch (ParseException e) {
@@ -39,6 +43,7 @@ public class Main {
                 } finally {
                     System.out.println("\n\nUpdated Contacts\n\n" + manager);
                 }
+             }
            } else if(response.equalsIgnoreCase("b")) {
                System.out.println("\nWho would you like to remove?");
                manager.removeContact(scan.nextLine());
